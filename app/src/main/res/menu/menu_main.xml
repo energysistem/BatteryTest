@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+    <item android:id="@+id/ItemlistarVideo" android:title="LISTAR VIDEOS"
+        android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/ItemRegistro" android:title="REGISTRO BATERIA"
+        android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/ItemDeviceInfo" android:title="INFORMACION DISPOSITIVO"
+        android:orderInCategory="100" app:showAsAction="never" />
+</menu>

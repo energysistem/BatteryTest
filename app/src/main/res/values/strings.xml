@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">BatteryTest</string>
+
+    <string name="DatosDisposistivo">SIN DATOS DE DISPOSISTIVO</string>
+    <string name="action_settings">Settings</string>
+
+
+    <!--ACTIVTIES-->
+    <string name="title_activity_caracteristicas">Iniciar Test</string>
+
+    <!--MENU PRINCIPAL-->
+    <string name="main_radio_modo_usuario">Modo Usuario</string>
+    <string name="main_radio_modo_fabricante">Modo Fabricante</string>
+    <string name="main_radio_caracteristicas_bateria">Caracteristicas Bateria</string>
+    <string name="main_iniciar_btn">Iniciar Test</string>
+    <string name="main_elija_opcion">Elija una opcion de las anteriores</string>
+
+
+    <!--listaVideos-->
+    <string name="listaVideos_mensajeIndicativo" >Salen los videos que esten en la carpeta raiz (Movies)</string>
+
+
+    <!--Caracteristicas-->
+    <string name="caracteristicas_bateriaTitulo">--(BATERIA)--</string>
+    <string name="caracteristicas_Estado">Estado: </string>
+    <string name="caracteristicas_Estado_no_conocido">-> ESTADO NO CONOCIDO</string>
+    <string name="caracteristicas_Estado_cargando">-> BATERIA ESTA CARGANDO"</string>
+
+    <string name="caracteristicas_Estado_descargando">)-> LA BATERIA ESTA DESCARGANDOSE</string>
+    <string name="caracteristicas_Estado_no_cargando">-> LA BATERIA NO ESTA CARGANDO</string>
+    <string name="caracteristicas_Estado_carga_completa">-> BATERIA LLENA</string>
+
+
+
+    <string name="caracteristicas_Tecnologia">Tecnologia: </string>
+    <string name="caracteristicas_Temperatura">Temperatura: </string>
+    <string name="caracteristicas_Voltaje">Voltaje: </string>
+    <string name="caracteristicas_PorcentajeBateria">Porcentaje bateria: </string>
+    <string name="caracteristicas_PorcentajeBateriaMaximo">Porcentaje bateria Maximo Permitido: </string>
+    <string name="caracteristicas_Voltios">Voltios</string>
+
+
+    <string name="caracteristicas_CARGARDOR_CORRIENTE">Toma de corriente: energia de cargador</string>
+    <string name="caracteristicas_USB_CORRIENTE">Toma de corriente: energia de usb</string>
+    <string name="caracteristicas_BATERIA_CORRIENTE">Toma de corriente: energia de bateria</string>
+    <string name="caracteristicas_SIN_CORRIENTE">Toma de corriente: sin toma de corriente</string>
+
+    <string name="caracteristicas_salud_bateria_desconocida">Salud Bateria: DESCONOCIDA </string>
+    <string name="caracteristicas_salud_bateria_buena">Salud Bateria: BUENA</string>
+    <string name="caracteristicas_salud_bateria_sobrecalentamiento">Salud Bateria: CUIDADO!! SOBRECALENTAMIENTO</string>
+    <string name="caracteristicas_salud_bateria_muerta">Salud Bateria: MUERTA</string>
+    <string name="caracteristicas_salud_bateria_voltaje_por_encima_de_lo_normal">Salud Bateria: CUIDADO!! VOLTAJE POR ENCIMA DE LO RECOMENDADO</string>
+    <string name="caracteristicas_salud_bateria_fallo_inespecifico">Salud Bateria: FALLO INESPECIFICO</string>
+    <string name="caracteristicas_salud_bateria_temperatura_baja"> Salud Bateria: CUIDADO!! TEMPERATURA DEMASIDO BAJA</string>
+
+
+
+    <string name="caracteristicas_salud_bateria_presente_si">Bateria en el dispositivo: SI </string>
+    <string name="caracteristicas_salud_bateria_presente_no">Bateria en el dispositivo: NO </string>
+
+</resources>
+
