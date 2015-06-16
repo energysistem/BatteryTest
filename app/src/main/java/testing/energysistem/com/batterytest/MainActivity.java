@@ -1,19 +1,14 @@
 package testing.energysistem.com.batterytest;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.location.LocationManager;
 import android.media.AudioManager;
 import android.net.ConnectivityManager;
-import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,7 +28,7 @@ import utilidades.Modo_Usuario;
 
 public class MainActivity extends Activity  {
 
-private Button btnIniciarTest;
+    private Button btnIniciarTest, btnRegistroBateria;
 private RadioButton radioFabricante, radioUsuario, radioCaracteristicas;
 private RadioGroup radioGroupOpciones;
 
@@ -69,7 +64,18 @@ private RadioGroup radioGroupOpciones;
         radioUsuario=(RadioButton) findViewById(R.id.main_radioModoUsuario);
         radioCaracteristicas=(RadioButton) findViewById(R.id.main_radioVerCaracteristicas);
         btnIniciarTest= (Button) findViewById(R.id.main_btnIniciarTest);
+        btnRegistroBateria = (Button) findViewById(R.id.main_btnRegistroBateria);
 
+
+        btnRegistroBateria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent lanzadorBattery = new Intent(mainContext, RegistroActivity.class);
+
+                startActivity(lanzadorBattery);
+            }
+        });
 
 
 
@@ -80,7 +86,6 @@ private RadioGroup radioGroupOpciones;
 
 
                 Intent lanzador;
-
 
 
 

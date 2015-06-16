@@ -57,6 +57,7 @@
 
     <string name="caracteristicas_salud_bateria_presente_si">Bateria en el dispositivo: SI </string>
     <string name="caracteristicas_salud_bateria_presente_no">Bateria en el dispositivo: NO </string>
+    <string name="main_registro">REGISTRO BATERIA</string>
 
 </resources>
 

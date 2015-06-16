@@ -57,6 +57,7 @@ public class DataBaseManagerActualizaciones extends DataBaseManager {
 
         String ultima=resultSet.getString(2).toString();
 
+
         if(ultima==null)
             ultima="";
 

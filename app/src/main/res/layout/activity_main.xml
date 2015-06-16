@@ -43,9 +43,22 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/main_iniciar_btn"
         android:id="@+id/main_btnIniciarTest" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/main_registro"
+        android:id="@+id/main_btnRegistroBateria"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:background="@drawable/max_battery"
+        android:elegantTextHeight="false"
+        android:textColor="#ffdef3ff"
+        android:gravity="center_horizontal" />
 
 
 </LinearLayout>

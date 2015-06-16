@@ -13,6 +13,12 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
+
 import database.DataBaseManagerActualizaciones;
 
 
@@ -68,13 +74,46 @@ public class RegistroActivity extends ActionBarActivity implements View.OnClickL
     }
 
 
+    public String diferenciaTiempo(String dateInicial, String dateFinal) throws ParseException {
+
+
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+
+        SimpleDateFormat format = new SimpleDateFormat("yy-MM-dd HH:mm:ss");
+
+        Date dI = null;
+
+        dI = format.parse(dateInicial);
+
+        Date dF = format.parse(dateFinal);
+
+
+        Date diff = new Date(dF.getTime() - dI.getTime());
+
+        //  Calendar calendar = Calendar.getInstance();
+        calendar.setTime(diff);
+
+
+        int hours = calendar.get(Calendar.HOUR_OF_DAY);
+        int minutes = calendar.get(Calendar.MINUTE);
+        int seconds = calendar.get(Calendar.SECOND);
+
+
+        return hours + " h " + minutes + " min " + seconds + " s ";
+    }
+
+
     @Override
     protected void onPostResume() {
         super.onPostResume();
 
         try{
 
-            tv.setText("\nPRIMERA FECHA: " + objManagerActualizacion.selectPrimeraActualizacion()+ "\n ULTIMA FECHA:" + objManagerActualizacion.selectUltimaActualizacion() );
+            String primera = objManagerActualizacion.selectPrimeraActualizacion();
+            String ultima = objManagerActualizacion.selectUltimaActualizacion();
+
+
+            tv.setText("\nPRIMERA FECHA: " + primera + "\n ULTIMA FECHA:" + "\t" + ultima + "\n DIFERENCIA:<(" + diferenciaTiempo(primera, ultima) + ")>");
         }catch (Exception e){
 
             tv.setText( "PRIMERA FECHA: " + "No hay suficentes datos"+ "\n ULTIMA FECHA: " + "No hay suficentes datos" );
