@@ -30,24 +30,40 @@ public class DatosDispositivo {
 
     @Override
     public String toString() {
-        return "DatosDispositivo{  \n" +
+        return " Datos Dispositivo :  \n" +
 
-                "\n -ANDROID='" + ANDROID + '\'' +
-                "\n -BOARD='" + BOARD + '\'' +
-                "\n -BOOTLOADER='" + BOOTLOADER + '\'' +
-                "\n -BRAND='" + BRAND + '\'' +
-                "\n -DEVICE='" + DEVICE + '\'' +
-                "\n\n -DISPLAY='" + DISPLAY + '\'' +
-                "\n\n -FINGERPRINT='" + FINGERPRINT + '\'' +
-                "\n\n -HARDWARE='" + HARDWARE + '\'' +
-                "\n -HOST='" + HOST + '\'' +
-                "\n -ID='" + ID + '\'' +
-                "\n -MANUFACTURER='" + MANUFACTURER + '\'' +
-                "\n -MODEL='" + MODEL + '\'' +
-                "\n -PRODUCT='" + PRODUCT + '\'' +
-                "\n -TAGS='" + TAGS + '\'' +
-                "\n -TYPE='" + TYPE + '\'' +
-                "\n -USER='" + USER + '\'' +
-                '}';
+                "\n -ANDROID='" + ANDROID + '\n' +
+                "-----------------------------------------------" +
+                "\n -BOARD='" + BOARD + '\n' +
+                "-----------------------------------------------" +
+                "\n -BOOTLOADER='" + BOOTLOADER + '\n' +
+                "-----------------------------------------------" +
+                "\n -BRAND='" + BRAND + '\n' +
+                "-----------------------------------------------" +
+                "\n -DEVICE='" + DEVICE + '\n' +
+                "-----------------------------------------------" +
+                "\n DISPLAY='" + DISPLAY + '\n' +
+                "-----------------------------------------------" +
+                "\n -FINGERPRINT='" + FINGERPRINT + '\n' +
+                "-----------------------------------------------" +
+                "\n -HARDWARE='" + HARDWARE + '\n' +
+                "-----------------------------------------------" +
+                "\n -HOST='" + HOST + '\n' +
+                "-----------------------------------------------" +
+                "\n -ID='" + ID + '\n' +
+                "-----------------------------------------------" +
+                "\n -MANUFACTURER='" + MANUFACTURER + '\n' +
+                "-----------------------------------------------" +
+                "\n -MODEL='" + MODEL + '\n' +
+                "-----------------------------------------------" +
+                "\n -PRODUCT='" + PRODUCT + '\n' +
+                "-----------------------------------------------" +
+                "\n -TAGS='" + TAGS + '\n' +
+                "-----------------------------------------------" +
+                "\n -TYPE='" + TYPE + '\n' +
+                "-----------------------------------------------" +
+                "\n -USER='" + USER + '\n' +
+                "-----------------------------------------------" +
+                '.';
     }
 }

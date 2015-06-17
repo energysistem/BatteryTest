@@ -18,23 +18,30 @@ import utilidades.ManagerBattery;
 
 public class VerVideoActivity extends Activity implements MediaController.MediaPlayerControl {
 
+    int count_event = 0;
     private VideoView mVideoView;
-
     /**
      * Intent
      */
 
     private String ruta;
-
-
     /**
      * registro bateria
      * @param savedInstanceState
      */
     private ManagerBattery objectManagerBattery;
     private DataBaseManagerActualizaciones managerActualizacion;
-    int count_event =0;
+    private BroadcastReceiver myBatteryReceiverVideo = new BroadcastReceiver() {
 
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+
+            objectManagerBattery = new ManagerBattery(intent);
+
+            llenar_database();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +60,6 @@ public class VerVideoActivity extends Activity implements MediaController.MediaP
         insertarRuta_ReproduccionBucle();
 
     }
-
 
 public void insertarRuta_ReproduccionBucle(){
 
@@ -76,8 +82,6 @@ public void insertarRuta_ReproduccionBucle(){
 
 }
 
-
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -89,7 +93,6 @@ public void insertarRuta_ReproduccionBucle(){
 
     }
 
-
     @Override
     protected void onDestroy() {
         unregisterReceiver(myBatteryReceiverVideo);
@@ -99,28 +102,10 @@ public void insertarRuta_ReproduccionBucle(){
 
     }
 
-    private BroadcastReceiver myBatteryReceiverVideo = new BroadcastReceiver() {
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-
-
-            objectManagerBattery = new ManagerBattery(intent);
-
-            llenar_database();
-        }
-    };
-
-
-
 public void llenar_database(){
 
 
-
-/**
- * si esta activado el interruptor -->registramos el evento en la base de datos
- */
-            if(count_event %3==0)
+    if(count_event %3==0)
                 managerActualizacion.insertar_3parametros(null, "" + objectManagerBattery.getLevelBatery(), Fechas.getDateTime());
 
 

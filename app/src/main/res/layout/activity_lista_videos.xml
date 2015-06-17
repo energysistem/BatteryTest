@@ -4,16 +4,17 @@
     android:orientation="vertical" >
 
     <Button
+        android:id="@+id/btnMensaje"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/listaVideos_mensajeIndicativo"
-        android:id="@+id/btnMensaje"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:background="@color/material_deep_teal_200"
+        android:text="@string/listaVideos_mensajeIndicativo" />
 
     <ListView
         android:id="@+id/list"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     </ListView>
 
 </LinearLayout>

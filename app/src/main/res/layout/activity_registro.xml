@@ -1,26 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/tvDuracion"
-        android:layout_gravity="center_horizontal" />
 
     <Button
+        android:id="@+id/btnBorrar"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Borrar Registro"
-        android:id="@+id/btnBorrar" />
+        android:background="@android:drawable/dialog_holo_dark_frame"
+        android:clickable="true"
+        android:elegantTextHeight="true"
+        android:elevation="@dimen/abc_action_bar_progress_bar_size"
+        android:ellipsize="marquee"
+        android:text="@string/registro_borrar_registro"
+        android:textColor="#ffff2200"
+        android:textStyle="bold" />
 
-    <ListView
+    <TextView
+        android:id="@+id/registro_tvPrimeraFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="New Text"
+        android:textColor="@color/background_floating_material_dark" />
+
+    <TextView
+        android:id="@+id/registro_tvUltima_fecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="New Text"
+        android:textColor="@color/background_floating_material_dark" />
+
+    <TextView
+        android:id="@+id/tvDuracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="New Text"
+        android:textColor="@color/background_floating_material_dark"
+        android:textStyle="italic" />
+
+    <View
+        android:id="@+id/linea"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_above="@+id/compartir"
+        android:layout_toRightOf="@+id/imagen"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/tvPorcentajeBateria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/listViewActualizaciones" />
+        android:layout_gravity="center_horizontal"
+        android:background="@color/accent_material_light"
+        android:text="PORCENTAJE DE BATERIA Y FECHA"
+        android:textColor="@color/background_floating_material_dark"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/linea2"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_above="@+id/compartir"
+        android:layout_toRightOf="@+id/imagen"
+        android:background="@android:color/darker_gray" />
+
+    <ListView
+        android:id="@+id/listViewActualizaciones"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/accent_material_dark"
+        android:choiceMode="multipleChoiceModal" />
 
 </LinearLayout>

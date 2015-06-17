@@ -13,13 +13,8 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
-
 import database.DataBaseManagerActualizaciones;
+import utilidades.Fechas;
 
 
 public class RegistroActivity extends ActionBarActivity implements View.OnClickListener{
@@ -27,12 +22,9 @@ public class RegistroActivity extends ActionBarActivity implements View.OnClickL
 
     
 
-    private Button btnDuracion;
-    private TextView tv;
-
     DataBaseManagerActualizaciones objManagerActualizacion;
-
-
+    private Button btnDuracion;
+    private TextView tvDateInicial, tvDateFinal, tvDiferencia;
     private DataBaseManagerActualizaciones manager;
     private SimpleCursorAdapter adapter;
     private Cursor c;
@@ -50,11 +42,14 @@ public class RegistroActivity extends ActionBarActivity implements View.OnClickL
         listView = (ListView) findViewById(R.id.listViewActualizaciones);
 
 
-        // manager.insertar_3parametros(null, "1212", "1990-01-01 ");
+
         btnDuracion=(Button) findViewById(R.id.btnBorrar);
         btnDuracion.setOnClickListener(this);
 
-        tv=(TextView) findViewById(R.id.tvDuracion);
+
+        tvDateInicial = (TextView) findViewById(R.id.registro_tvPrimeraFecha);
+        tvDateFinal = (TextView) findViewById(R.id.registro_tvUltima_fecha);
+        tvDiferencia = (TextView) findViewById(R.id.tvDuracion);
 
 
 
@@ -74,33 +69,6 @@ public class RegistroActivity extends ActionBarActivity implements View.OnClickL
     }
 
 
-    public String diferenciaTiempo(String dateInicial, String dateFinal) throws ParseException {
-
-
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
-
-        SimpleDateFormat format = new SimpleDateFormat("yy-MM-dd HH:mm:ss");
-
-        Date dI = null;
-
-        dI = format.parse(dateInicial);
-
-        Date dF = format.parse(dateFinal);
-
-
-        Date diff = new Date(dF.getTime() - dI.getTime());
-
-        //  Calendar calendar = Calendar.getInstance();
-        calendar.setTime(diff);
-
-
-        int hours = calendar.get(Calendar.HOUR_OF_DAY);
-        int minutes = calendar.get(Calendar.MINUTE);
-        int seconds = calendar.get(Calendar.SECOND);
-
-
-        return hours + " h " + minutes + " min " + seconds + " s ";
-    }
 
 
     @Override
@@ -112,11 +80,15 @@ public class RegistroActivity extends ActionBarActivity implements View.OnClickL
             String primera = objManagerActualizacion.selectPrimeraActualizacion();
             String ultima = objManagerActualizacion.selectUltimaActualizacion();
 
-
-            tv.setText("\nPRIMERA FECHA: " + primera + "\n ULTIMA FECHA:" + "\t" + ultima + "\n DIFERENCIA:<(" + diferenciaTiempo(primera, ultima) + ")>");
+            tvDateInicial.setText("PRIMERA FECHA: " + primera);
+            tvDateFinal.setText("ULTIMA FECHA: " + ultima);
+            tvDiferencia.setText("DIFERENCIA:<(" + Fechas.diferenciaTiempo(primera, ultima) + ")>");
         }catch (Exception e){
 
-            tv.setText( "PRIMERA FECHA: " + "No hay suficentes datos"+ "\n ULTIMA FECHA: " + "No hay suficentes datos" );
+            tvDateInicial.setText("PRIMERA FECHA: " + " No hay suficentes datos");
+            tvDateFinal.setText("ULTIMA FECHA: " + " No hay suficentes datos");
+            tvDiferencia.setText("DIFERENCIA:<(" + 0 + ")>");
+
 
         }
 
@@ -129,11 +101,10 @@ public class RegistroActivity extends ActionBarActivity implements View.OnClickL
         super.onDestroy();
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    @Override
-    public void onClick(View view) {
 
-        if(view.getId()==R.id.btnBorrar){
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btnBorrar) {
             objManagerActualizacion.eliminarTodo();
 
             String[] from = new String[]{ manager.CN_LEVEL_BATERY, manager.CN_FECHA};
@@ -143,6 +114,8 @@ public class RegistroActivity extends ActionBarActivity implements View.OnClickL
             adapter = new SimpleCursorAdapter(this, android.R.layout.two_line_list_item, c, from, to, 0);
             listView.setAdapter(adapter);
         }
+
+
     }
 
 
@@ -150,7 +123,7 @@ public class RegistroActivity extends ActionBarActivity implements View.OnClickL
 
         @Override
         protected void onPreExecute() {
-            Toast.makeText(getApplicationContext(), "Loading data...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Cargando Datos", Toast.LENGTH_SHORT).show();
         }
 
         @Override

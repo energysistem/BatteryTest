@@ -47,7 +47,7 @@
         </activity>
         <activity
             android:name=".DatosDispositivoActivity"
-            android:label="Datos Dispositivo" >
+            android:label="@string/title_activity_Datos">
         </activity>
         <activity
             android:name=".CaracteristicasActivity"

@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.LocationManager;
-import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,13 +21,8 @@ public class ListaVideosActivity extends Activity {
 
 
     ListView listView ;
-    private AudioManager mAudioManager;
-    private LocationManager locationManager;
 
-    /**
-     * intent
-     */
-    private String TipoAccionDeActivity="";
+    private LocationManager locationManager;
 
 
 
@@ -93,9 +87,7 @@ public class ListaVideosActivity extends Activity {
         listView = (ListView) findViewById(R.id.list);
 
 
-
-
-        String[] ListaRutas =new String[Arbol.Devuelverutas().size()];
+        String[] ListaRutas = new String[Arbol.Devuelverutas().size()];
 
 
         List<String> listaNodo1 = Arbol.Devuelverutas();
@@ -104,7 +96,6 @@ public class ListaVideosActivity extends Activity {
         for(int i=0; i<listaNodo1.size(); i++){
 
             ListaRutas[i]=listaNodo1.get(i);
-
 
         }
 
