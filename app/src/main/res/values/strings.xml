@@ -59,6 +59,10 @@
     <string name="main_registro">BATERIA</string>
     <string name="main_valoracion">VALORACION</string>
     <string name="registro_borrar_registro"> BORRAR REGISTRO</string>
+    <string name="title_activity_valoracion">ValoracionActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="valoracion_tv_duracion">Duracion</string>
 
 </resources>
 

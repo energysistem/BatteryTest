@@ -252,7 +252,7 @@ public class CartaAdapdater extends RecyclerView.Adapter<CartaAdapdater.CartaVie
 
                 case 4:
 
-                    v.getContext().startActivity(new Intent(mainContext, DatosDispositivoActivity.class));
+                    v.getContext().startActivity(new Intent(mainContext, ValoracionActivity.class));
                     break;
             }
 

@@ -80,9 +80,10 @@ public class RegistroActivity extends ActionBarActivity implements View.OnClickL
             String primera = objManagerActualizacion.selectPrimeraActualizacion();
             String ultima = objManagerActualizacion.selectUltimaActualizacion();
 
+
             tvDateInicial.setText("PRIMERA FECHA: " + primera);
             tvDateFinal.setText("ULTIMA FECHA: " + ultima);
-            tvDiferencia.setText("DIFERENCIA:<(" + Fechas.diferenciaTiempo(primera, ultima) + ")>");
+            tvDiferencia.setText("DIFERENCIA:<(" + Fechas.diferenciaTiempo(primera, ultima, "registro") + ")>");
         }catch (Exception e){
 
             tvDateInicial.setText("PRIMERA FECHA: " + " No hay suficentes datos");
