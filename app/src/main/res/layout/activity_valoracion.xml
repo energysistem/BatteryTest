@@ -14,7 +14,8 @@
         android:id="@+id/valoracion_tv_nameDevice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NAME DEVICE" />
+        android:text="@string/valoracion_nombreDispositivo"
+        android:textSize="20dp" />
 
 
     <View
@@ -31,14 +32,21 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/valoracion_tv_duracion" />
+        android:text="@string/valoracion_tv_duracion"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="#ffd5d5d5" />
 
     <TextView
         android:id="@+id/valoracion_duracion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="h/min/->" />
+        android:text="h/min/->"
+        android:textSize="20dp" />
 
 
     <View
@@ -51,14 +59,17 @@
         android:id="@+id/valoracion_tvModoFabricante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/main_radio_modo_fabricante" />
-
+        android:background="@android:color/background_dark"
+        android:text="@string/main_radio_modo_fabricante"
+        android:textColor="@android:color/background_light"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/valoracion_ResultadoModoFabricante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="........................." />
+        android:text="........................."
+        android:textSize="20dp" />
 
     <View
         android:layout_width="wrap_content"
@@ -69,13 +80,17 @@
         android:id="@+id/valoracion_ModoUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/main_radio_modo_usuario" />
+        android:background="@android:color/holo_blue_light"
+        android:text="@string/main_radio_modo_usuario"
+        android:textColor="@android:color/background_light"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/valoracion_ResultadoModoUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="........................." />
+        android:text="........................."
+        android:textSize="20dp" />
 
     <View
         android:layout_width="wrap_content"

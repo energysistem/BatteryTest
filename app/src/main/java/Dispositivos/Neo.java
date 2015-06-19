@@ -10,7 +10,22 @@ package Dispositivos;
  */
 public class Neo {
 
-    private static int horas = 4;
-    private static int minutos = 40;
+    private static int horasUsuario = 4;
+    private static int minutosUsuario = 40;
 
+    public static int getHorasUsuario() {
+        return horasUsuario;
+    }
+
+    public static void setHorasUsuario(int horasUsuario) {
+        Neo.horasUsuario = horasUsuario;
+    }
+
+    public static int getMinutosUsuario() {
+        return minutosUsuario;
+    }
+
+    public static void setMinutosUsuario(int minutosUsuario) {
+        Neo.minutosUsuario = minutosUsuario;
+    }
 }

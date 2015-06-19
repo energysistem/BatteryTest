@@ -54,12 +54,18 @@ public class DataBaseManagerActualizaciones extends DataBaseManager {
 
         Cursor resultSet = getDb().rawQuery("Select * from " + TABLE_NAME + " order by " + CN_FECHA + " DESC LIMIT 1", null);
         resultSet.moveToFirst();
+        String ultima = "";
+        if (algunRegistro()) {
+            //    try {
+            ultima = resultSet.getString(2).toString();
+            //  }catch (Exception e){
 
-        String ultima=resultSet.getString(2).toString();
+            //  Log.e("ultimo_registro", e.getMessage());
+            //}
+
+        }
 
 
-        if(ultima==null)
-            ultima="";
 
         return ultima;
 
@@ -73,15 +79,23 @@ public class DataBaseManagerActualizaciones extends DataBaseManager {
         Cursor resultSet = getDb().rawQuery("Select * from " + TABLE_NAME + " order by " + CN_FECHA + " ASC LIMIT 1", null);
         resultSet.moveToFirst();
 
+        String ultima = "";
 
 
-        String ultima=resultSet.getString(2).toString();
+        if (algunRegistro()) {
 
-        String rec1 = resultSet.getString(resultSet.getColumnIndex
-                (CN_FECHA));
+            //   try {
 
-        if(ultima==null)
-            ultima="";
+            ultima = resultSet.getString(2).toString();
+
+            //String rec1 = resultSet.getString(resultSet.getColumnIndex(CN_FECHA));
+            // } catch (Exception e) {
+
+            //   Log.e("primer_registro", e.getMessage());
+            //}
+        }
+
+
 
 
         return ultima;

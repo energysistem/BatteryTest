@@ -63,6 +63,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="valoracion_tv_duracion">Duracion</string>
+    <string name="valoracion_nombreDispositivo">Nombre Dispositivo</string>
 
 </resources>
 

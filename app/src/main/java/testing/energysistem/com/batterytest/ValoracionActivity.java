@@ -8,7 +8,11 @@ import android.widget.Toast;
 
 import java.text.ParseException;
 
+import Dispositivos.Colors;
+import Dispositivos.Max;
+import Dispositivos.Neo;
 import Dispositivos.ProHD;
+import Dispositivos.Pro_ProQui;
 import database.DataBaseManagerActualizaciones;
 import utilidades.DatosDispositivo;
 import utilidades.Fechas;
@@ -38,8 +42,18 @@ public class ValoracionActivity extends Activity {
         datos = new DatosDispositivo();
 
 
-        try {
-            Dateduracion = Fechas.diferenciaTiempo(objManagerActualizacion.selectPrimeraActualizacion(), objManagerActualizacion.selectUltimaActualizacion(), "valoracion");
+        if (objManagerActualizacion.algunRegistro()) {
+
+
+            try {
+
+                Dateduracion = Fechas.diferenciaTiempo(objManagerActualizacion.selectPrimeraActualizacion(), objManagerActualizacion.selectUltimaActualizacion(), "valoracion");
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+
             String delimitadores = ":";
             String[] arrayDateDuracion = Dateduracion.split(delimitadores);
 
@@ -48,11 +62,19 @@ public class ValoracionActivity extends Activity {
 
             Log.d("time_array", "hour :" + horas + " min: " + min);
 
-            Relaciona(horas, min);
+            try {
 
-        } catch (ParseException e) {
-            e.printStackTrace();
+                Relaciona(horas, min);
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            Toast.makeText(getApplicationContext(), "Elije el Modo Usuario o Modo Fabricante para poder valorar el dispositivo", Toast.LENGTH_LONG).show();
+
         }
+
 
 
     }
@@ -73,7 +95,7 @@ public class ValoracionActivity extends Activity {
 
             case "Energy_Phone_Pro_HD":
 
-                Toast.makeText(this, "HD", Toast.LENGTH_SHORT).show();
+
 
                 resultadoFabricante = Fechas.diferenciaMin_Valoracion(ProHD.getHorasFabricante(), ProHD.getMinutosFabricante(), horas_duracion, min_duracion);
                 resultadoUsuario = Fechas.diferenciaMin_Valoracion(ProHD.getHorasUsuario(), ProHD.getMinutosUsuario(), horas_duracion, min_duracion);
@@ -83,7 +105,57 @@ public class ValoracionActivity extends Activity {
                 tvResultadoModoUsuario.setText(resultadoUsuario);
                 break;
 
+
+            case "Energy_Phone_Max":
+
+
+                resultadoFabricante = Fechas.diferenciaMin_Valoracion(Max.getHorasFabricante(), Max.getMinutosFabricante(), horas_duracion, min_duracion);
+                resultadoUsuario = Fechas.diferenciaMin_Valoracion(Max.getHorasUsuario(), Max.getMinutosUsuario(), horas_duracion, min_duracion);
+
+                tvDuracion.append(" " + Dateduracion);
+                tvResultadoModoFabricante.setText(resultadoFabricante);
+                tvResultadoModoUsuario.setText(resultadoUsuario);
+                break;
+
+
+            case "Energy_Phone_Pro":
+
+                resultadoFabricante = Fechas.diferenciaMin_Valoracion(Pro_ProQui.getHorasFabricante(), Pro_ProQui.getMinutosFabricante(), horas_duracion, min_duracion);
+                resultadoUsuario = Fechas.diferenciaMin_Valoracion(Pro_ProQui.getHorasUsuario(), Pro_ProQui.getMinutosUsuario(), horas_duracion, min_duracion);
+
+                tvDuracion.append(" " + Dateduracion);
+                tvResultadoModoFabricante.setText(resultadoFabricante);
+                tvResultadoModoUsuario.setText(resultadoUsuario);
+                break;
+
+
+            case "Energy Phone Colors":
+
+
+                resultadoFabricante = "-No hay datos de referencia del fabricante";
+                resultadoUsuario = Fechas.diferenciaMin_Valoracion(Colors.getHorasUsuario(), Colors.getMinutosUsuario(), horas_duracion, min_duracion);
+
+                tvDuracion.append(" " + Dateduracion);
+                tvResultadoModoFabricante.setText(resultadoFabricante);
+                tvResultadoModoUsuario.setText(resultadoUsuario);
+                break;
+
+
+            case "Energy Phone Neo":
+
+
+                resultadoFabricante = "-No hay datos de referencia del fabricante";
+                resultadoUsuario = Fechas.diferenciaMin_Valoracion(Neo.getHorasUsuario(), Neo.getMinutosUsuario(), horas_duracion, min_duracion);
+
+                tvDuracion.append(" " + Dateduracion);
+                tvResultadoModoFabricante.setText(resultadoFabricante);
+                tvResultadoModoUsuario.setText(resultadoUsuario);
+                break;
+
+
+          
             default:
+                Toast.makeText(getApplicationContext(), "No reconozco a este dispositivo", Toast.LENGTH_LONG).show();
                 break;
 
         }
