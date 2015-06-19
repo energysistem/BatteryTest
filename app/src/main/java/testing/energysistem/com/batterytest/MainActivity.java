@@ -16,6 +16,7 @@ public class MainActivity extends Activity {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager lManager;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +25,12 @@ public class MainActivity extends Activity {
 
         List<Ficha> items = new ArrayList<>();
 
-        items.add(new Ficha(R.drawable.fabricante_logo, "Modo Fabricante", 230));
-        items.add(new Ficha(R.drawable.usuario, "Modo Usuario", 456));
-        items.add(new Ficha(R.drawable.detail_battery2, "Registro Bateria", 342));
-        items.add(new Ficha(R.drawable.detail_battery, "Caracteristicas Bateria", 645));
-        items.add(new Ficha(R.drawable.valoracion, "Valoracion Test", 459));
+        items.add(new Ficha(R.drawable.fabricante_logo, "Modo Fabricante", 0));
+        items.add(new Ficha(R.drawable.usuario, "Modo Usuario", 0));
+        items.add(new Ficha(R.drawable.valoracion, "Valoracion Test", 0));
+        items.add(new Ficha(R.drawable.detail_battery2, "Registro Bateria", 0));
+        items.add(new Ficha(R.drawable.detail_battery, "Caracteristicas Bateria", 0));
+        items.add(new Ficha(R.drawable.device_features, "Datos dispositivo", 0));
 
         // Obtener el Recycler
         recycler = (RecyclerView) findViewById(R.id.reciclador);
@@ -41,9 +43,6 @@ public class MainActivity extends Activity {
         // Crear un nuevo adaptador
         adapter = new CartaAdapdater(items, this);
         recycler.setAdapter(adapter);
-
-
-
 
     }
 }
