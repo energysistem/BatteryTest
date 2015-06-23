@@ -85,23 +85,19 @@ public class Fechas {
         Log.d("total_duracion", "(SUM DURACION):" + sumTotalDuration);
         Log.d("total_diff", "(((DIFERENCIA))):" + diferenciaMinTotal);
 
-        /**
-         * El tiempo de duracion positivo , es porque el tiempo de duracion es inferior o igual al tiempo estimado. (Mejora)
-         */
 
-        if (diferenciaMinTotal > 0)
-            salida = "(10) Muy Bien Ha superado el tiempo estimado";
+        if (diferenciaMinTotal > 50)
+            salida = "(0) Muy Mal, no ha llegado al tiempo por mas de 50 min";
+        else if (diferenciaMinTotal > 10)
+            salida = "(3) Regular, no ha llegado al tiempo por mas 10 min";
+        else if (diferenciaMinTotal > 5)
+            salida = "(4) Casi!, no ha llegado al tiempo por mas 5 min";
         else if (diferenciaMinTotal == 0)
             salida = "(7) Bien Ha llegado al tiempo estimado";
-            //tiempo duracion negativo, porque el tiempo de duracion es superior al tiempo estimado (deficit)
-        else if (diferenciaMinTotal < 0 && diferenciaMinTotal >= -10) //diferencia hasta 10 min
-            salida = "(5) Regular , no ha llegado al tiempo estimado";
-        else if (diferenciaMinTotal < -10 && diferenciaMinTotal > -30) // diferencia superior a 10 min
-            salida = "(2) Mal, no ha llegado al tiempo por mas de 10 min";
-        else if (diferenciaMinTotal < -30) // diferencia superior a 10 min
-            salida = "(0) Muy Mal, no ha llegado al tiempo por mas de 30 min";
-
-
+        else if (diferenciaMinTotal < 0)
+            salida = "(8) Muy Bien ha superado el tiempo estimado";
+        else if (diferenciaMinTotal < -30)
+            salida = "(10) Genial Ha superado el tiempo estimado por 30 min";
         return salida;
 
 

@@ -22,30 +22,37 @@ public class Arbol {
         //Creo el array de tipo File con el contenido de la carpeta
         File[] files = f.listFiles();
 
-        //Hacemos un Loop por cada fichero para extraer el nombre de cada uno
-        for (int i = 0; i < files.length; i++)
 
-        {
-            //Sacamos del array files un fichero
-            File file = files[i];
+        try {
+            //Hacemos un Loop por cada fichero para extraer el nombre de cada uno
+            for (int i = 0; i < files.length; i++)
 
-            //Si es directorio...
-            if (file.isDirectory()) {
+            {
+                //Sacamos del array files un fichero
+                File file = files[i];
 
-
-
-
-                String cadenaRuta= Environment.getExternalStorageDirectory() + "/Movies/" + file.getName() + "((ESTE ES UN DIRECTORIO ERROR))";
+                //Si es directorio...
+                if (file.isDirectory()) {
 
 
+                    //    String cadenaRuta= Environment.getExternalStorageDirectory() + "/Movies/" + file.getName() + "((ESTE ES UN DIRECTORIO ERROR))";
 
 
-                item.add(cadenaRuta);
+                    String cadenaRuta = Environment.getExternalStoragePublicDirectory("MOVIES") + file.getName() + "((ESTE ES UN DIRECTORIO ERROR))";
 
-                //Si es fichero...
-            }else
-                item.add(Environment.getExternalStorageDirectory() + "/Movies/"+file.getName());
 
+                    item.add(cadenaRuta);
+
+                    //Si es fichero...
+                } else
+                    item.add(Environment.getExternalStorageDirectory() + "/Movies/" + file.getName());
+
+            }
+
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
         }
 
 
